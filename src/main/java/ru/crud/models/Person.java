@@ -1,20 +1,30 @@
 package ru.crud.models;
 
-import javax.validation.constraints.Max;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "person")
 public class Person {
+    @Id
+    @Column(name = "person_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int personId;
 
+    @Column(name = "fio")
     private String fio;
-    @Max(value = 2023, message = "Pizdish")
+
+    @Column(name = "birthday")
     private Integer birthday;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Book> bookList;
 
     public Person() {
 
     }
 
-    public Person(int personId, String fio, Integer birthday) {
-        this.personId = personId;
+    public Person(String fio, Integer birthday) {
         this.fio = fio;
         this.birthday = birthday;
     }
@@ -41,5 +51,13 @@ public class Person {
 
     public void setBirthday(Integer birthday) {
         this.birthday = birthday;
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 }

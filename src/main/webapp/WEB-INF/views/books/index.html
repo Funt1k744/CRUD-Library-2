@@ -6,6 +6,9 @@
 </head>
 <body>
 
+<a href="/books/search">Search</a>
+<hr/>
+<br/>
 <div th:each="book : ${books}">
      <a th:href="@{/books/{id}(id=${book.getBookId()})}"
         th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">user</a>

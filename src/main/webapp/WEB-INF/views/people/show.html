@@ -10,8 +10,12 @@
 
 <tr th:if="${personTakeTest}">
     <a>Books:</a>
+    <br/>
     <tr th:each="book : ${personTake}">
-        <p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}"></p>
+        <span th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}"
+        th:style="${book.isExpired()} ? 'color: red' : 'color: black'">book</span>
+        <br/>
+
     </tr>
 </tr>
 
