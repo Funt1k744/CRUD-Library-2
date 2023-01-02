@@ -1,3 +1,3 @@
 # CRUD-Library-2
 CRUD Library 
-SPring Data + Hibernate
+Spring Framework + Spring Data + Hibernate
